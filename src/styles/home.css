@@ -1,0 +1,48 @@
+.Nav {
+  height: 75px;
+  width: 100%;
+  background-color: cornflowerblue;
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+.NavBtns {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin-right: 15px;
+}
+
+button {
+  background-color: cornflowerblue;
+  border-color: cornflowerblue;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+button:hover {
+  background-color: blue;
+}
+
+.btn:hover {
+  color: white;
+}
+
+a {
+  font-size: 30px;
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+.home {
+  position: relative;
+  top: 75px;
+}

@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRoutes, A } from "hookrouter";
+import React from "react";
+import "./styles/home.css";
+import Routes from "./routes";
 
 function App() {
+  const routeResult = useRoutes(Routes);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="Nav">
+      <span
+        style={{
+          fontSize: "35px",
+          position: "absolute",
+          marginLeft: "10px",
+          marginTop: "10px",
+        }}
+      >
+        Algorithm Calculator
+      </span>
+      <div class="NavBtns">
+        <button class>
+          <a href="/">Home</a>
+        </button>
+        <button>
+          <a href="/quicksort">QuickSort</a>
+        </button>
+        <button>
+          <a href="/mergesort">MergeSort</a>
+        </button>
+      </div>
+      {routeResult}
     </div>
   );
 }
