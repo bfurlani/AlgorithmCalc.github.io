@@ -1,0 +1,17 @@
+.qsmain {
+  position: relative;
+  top: 75px;
+}
+
+h3 {
+  font-size: 35px;
+  margin-left: 10px;
+}
+
+p {
+  margin-left: 10px;
+}
+
+.qsArr {
+  margin: 10px;
+}
