@@ -1,6 +1,22 @@
 .qsmain {
   position: relative;
   top: 75px;
+  float: left;
+}
+.speratorSelction {
+  position: absolute;
+  top: 200px;
+  left: 180px;
+  border: solid;
+  border-color: cornflowerblue;
+}
+
+.startQS {
+  position: absolute;
+  top: 310px;
+  left: 280px;
+  border: solid;
+  border-color: cornflowerblue;
 }
 
 h3 {
