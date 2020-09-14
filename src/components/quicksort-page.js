@@ -7,6 +7,22 @@ function QuickSortPage(props) {
   const [array, setArray] = useState(() => {
     return "1";
   });
+  const [qsStarted, setQsStarted] = useState(() => {
+    return false;
+  });
+  const [calls, setCalls] = useState(() => {
+    return [];
+  });
+  const [callNumber, setCallNumber] = useState(() => {
+    return 0;
+  });
+  const [iterations, setIterations] = useState(() => {
+    return [];
+  });
+  const [itrNumber, setItrNumber] = useState(() => {
+    return 0;
+  });
+
   return (
     <div class="qsmain">
       <h3>Quick Sort:</h3>
@@ -15,7 +31,12 @@ function QuickSortPage(props) {
         To start, please enter the array(do not include brackets and select the
         seperation character) and the solution you are looking for:
       </p>
-      <input type="text" class="qsArr" id="qsArray"></input>
+      <input
+        style={{ width: "150px" }}
+        type="text"
+        class="qsArr"
+        id="qsArray"
+      ></input>
       <div class="speratorSelction">
         <span>Select Array Serperator</span>
         <br />
@@ -30,55 +51,120 @@ function QuickSortPage(props) {
           <span>No Space</span>
         </form>
       </div>
-      <button class="startQS" onClick={() => setArray(getArray())}>
+      <button class="resetQS" onClick={() => resetQS()}>
+        Reset QS
+      </button>
+      <button class="startQS" onClick={() => setQsStarted(true)}>
         Start QS
       </button>
+      {startQS()}
     </div>
   );
 
+  function resetQS() {
+    setQsStarted(false);
+    setCalls([]);
+    setIterations([]);
+  }
+  function getRadioOutput() {
+    var elm = document.getElementsByName("select");
+    for (var i = 0; i < elm.length; i++) {
+      if (elm[i].checked) {
+        return elm[i].value;
+      }
+    }
+  }
+
+  function startQS() {
+    var callNum = 1;
+    var itrNum = 1;
+    if (qsStarted === true) {
+      var array = getArray().split(getRadioOutput());
+      quickSort(array, 0, array.length - 1);
+      return (
+        <div class="qsSolutions">
+          <div id="qsCalls" class="displaySetting">
+            <div>Calls</div>
+            {calls.map((call) => {
+              //setCallNumber((prevCall) => prevCall + 1);
+              return (
+                <div>
+                  <span>
+                    {callNum++}: {call}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          <div id="spacer" class="displaySetting"></div>
+          <div id="qsIter" class="displaySetting">
+            <div>Iterations</div>
+            {iterations.map((itr) => {
+              //setItrNumber((prevItr) => prevItr + 1);
+              return (
+                <div>
+                  <span>
+                    {itrNum++}: {itr}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+  }
+
   function getArray() {
-    return document.getElementById("qsArray").value;
+    if (qsStarted) {
+      return document.getElementById("qsArray").value;
+    }
   }
 
-  function swap(items, leftIndex, rightIndex) {
-    var temp = items[leftIndex];
-    items[leftIndex] = items[rightIndex];
-    items[rightIndex] = temp;
-  }
-  function partition(items, left, right) {
-    var pivot = items[Math.floor((right + left) / 2)], //middle element
-      i = left, //left pointer
-      j = right; //right pointer
-    while (i <= j) {
-      while (items[i] < pivot) {
-        i++;
-      }
-      while (items[j] > pivot) {
-        j--;
-      }
-      if (i <= j) {
-        swap(items, i, j); //sawpping two elements
-        i++;
-        j--;
+  // function quickSort(origArray) {
+  //   if (origArray.length <= 1) {
+  //     return origArray;
+  //   } else {
+  //     var left = [];
+  //     var right = [];
+  //     var newArray = [];
+  //     var pivot = origArray.pop();
+  //     var length = origArray.length;
+
+  //     for (var i = 0; i < length; i++) {
+  //       if (origArray[i] <= pivot) {
+  //         left.push(origArray[i]);
+  //       } else {
+  //         right.push(origArray[i]);
+  //       }
+  //     }
+
+  //     return newArray.concat(quickSort(left), pivot, quickSort(right));
+  //   }
+  // }
+
+  function partition(arr, low, high) {
+    calls.push(`P(${low},${high})`);
+    var i = low - 1;
+    var pivot = arr[high];
+    for (var j = low; j < high; j++) {
+      if (arr[j] < pivot) {
+        i = i + 1;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
       }
     }
-    return i;
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    return i + 1;
   }
 
-  function quickSort(items, left, right) {
-    var index;
-    if (items.length > 1) {
-      index = partition(items, left, right); //index returned from partition
-      if (left < index - 1) {
-        //more elements on the left side of the pivot
-        quickSort(items, left, index - 1);
-      }
-      if (index < right) {
-        //more elements on the right side of the pivot
-        quickSort(items, index, right);
-      }
+  function quickSort(arr, low, high) {
+    calls.push(`QS(${low},${high})`);
+    iterations.push(String(arr));
+    if (low < high) {
+      var pi = partition(arr, low, high);
+      quickSort(arr, low, pi - 1);
+      quickSort(arr, pi + 1, high);
     }
-    return items;
   }
 }
 
