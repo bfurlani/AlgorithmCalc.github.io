@@ -1,0 +1,75 @@
+html {
+    overflow: scroll;
+  }
+  .ismain {
+    position: relative;
+    top: 75px;
+    float: left;
+  }
+  .speratorSelction {
+    position: absolute;
+    top: 200px;
+    left: 180px;
+    border: solid;
+    border-color: cornflowerblue;
+  }
+  
+  .startIS {
+    position: absolute;
+    top: 310px;
+    left: 280px;
+    border: solid;
+    border-color: cornflowerblue;
+    display: inline-block;
+  }
+  
+  .resetIS {
+    position: absolute;
+    top: 310px;
+    left: 200px;
+    border: solid;
+    border-color: cornflowerblue;
+    display: inline-block;
+  }
+  .isSolutions {
+    position: absolute;
+    width: 600px;
+    top: 200px;
+    left: 400px;
+    border: solid;
+    border-color: cornflowerblue;
+  }
+  
+  .displaySetting {
+    display: inline-block;
+    text-align: center;
+  }
+  
+  #isCalls {
+    width: 200px;
+    position: absolute;
+    top: 0px;
+  }
+  
+  #spacer {
+    width: 200px;
+  }
+  
+  #isIter {
+    position: absolute;
+    top: 0px;
+    width: 400px;
+  }
+  h3 {
+    font-size: 35px;
+    margin-left: 10px;
+  }
+  
+  p {
+    margin-left: 10px;
+  }
+  
+  .isArr {
+    margin: 10px;
+  }
+  
