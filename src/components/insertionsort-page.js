@@ -7,7 +7,7 @@ function InsertionSortPage(props) {
       const [array, setArray] = useState(() => {
         return "1";
       });
-      const [qsStarted, setIsStarted] = useState(() => {
+      const [isStarted, setIsStarted] = useState(() => {
         return false;
       });
       const [calls, setCalls] = useState(() => {
@@ -78,7 +78,7 @@ function InsertionSortPage(props) {
       function startIS() {
         var callNum = 1;
         var itrNum = 1;
-        if (qsStarted === true) {
+        if (isStarted === true) {
           var array = getArray().split(getRadioOutput());
           var numberedArray = [];
           array.forEach((str) => {
@@ -86,8 +86,8 @@ function InsertionSortPage(props) {
           });
           insertionSort(numberedArray, 0, numberedArray.length - 1);
           return (
-            <div class="qsSolutions">
-              <div id="qsCalls" class="displaySetting">
+            <div class="isSolutions">
+              <div id="isCalls" class="displaySetting">
                 <div>Calls</div>
                 {calls.map((call) => {
                   //setCallNumber((prevCall) => prevCall + 1);
@@ -101,7 +101,7 @@ function InsertionSortPage(props) {
                 })}
               </div>
               <div id="spacer" class="displaySetting"></div>
-              <div id="qsIter" class="displaySetting">
+              <div id="isIter" class="displaySetting">
                 <div>Iterations</div>
                 {iterations.map((itr) => {
                   //setItrNumber((prevItr) => prevItr + 1);
@@ -120,13 +120,13 @@ function InsertionSortPage(props) {
       }
 
       function getArray() {
-        if (qsStarted) {
-          return document.getElementById("qsArray").value;
+        if (isStarted) {
+          return document.getElementById("isArray").value;
         }
       }
 
       function insertionSort(arr, low, high) {
-        calls.push(`QS(${low},${high})`);
+        calls.push(`IS(${low},${high})`);
         iterations.push(String(arr));
       }
   }
