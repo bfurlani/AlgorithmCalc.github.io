@@ -80,7 +80,11 @@ function QuickSortPage(props) {
     var itrNum = 1;
     if (qsStarted === true) {
       var array = getArray().split(getRadioOutput());
-      quickSort(array, 0, array.length - 1);
+      var numberedArray = [];
+      array.forEach((str) => {
+        numberedArray.push(parseInt(str));
+      });
+      quickSort(numberedArray, 0, numberedArray.length - 1);
       return (
         <div class="qsSolutions">
           <div id="qsCalls" class="displaySetting">
