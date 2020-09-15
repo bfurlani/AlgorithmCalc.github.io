@@ -27,6 +27,9 @@ function App() {
         <button>
           <a href="/mergesort">MergeSort</a>
         </button>
+        <button>
+          <a href="/insertionsort">InsertionSort</a>
+        </button>
       </div>
       {routeResult}
     </div>
