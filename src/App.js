@@ -18,22 +18,46 @@ function App() {
         Algorithm Calculator
       </span>
       <div class="NavBtns">
-        <button class>
+        <button class="homeBtn">
           <a href="/">Home</a>
         </button>
-        <button>
-          <a href="/quicksort">QuickSort</a>
+        <button
+          onMouseOver={() => displayList("sortingContainer")}
+          onMouseOut={() => removeListFromView("sortingContainer")}
+          class="Sorting"
+        >
+          <span>Sorting</span>
         </button>
-        <button>
-          <a href="/mergesort">MergeSort</a>
-        </button>
-        <button>
-          <a href="/insertionsort">InsertionSort</a>
-        </button>
+        <div
+          id="sortingContainer"
+          onMouseOver={() => displayList("sortingContainer")}
+          onMouseOut={() => removeListFromView("sortingContainer")}
+        >
+          <button>
+            <a href="/quicksort">QuickSort</a>
+          </button>
+          <br />
+          <button>
+            <a href="/mergesort">MergeSort</a>
+          </button>
+          <br />
+          <button>
+            <a href="/insertionsort">InsertionSort</a>
+          </button>
+          <br />
+        </div>
+        <button class="sudoInt">Sudo Interpretter</button>
       </div>
       {routeResult}
     </div>
   );
+
+  function displayList(id) {
+    document.getElementById(id).style.top = "unset";
+  }
+  function removeListFromView(id) {
+    document.getElementById(id).style.top = "-1000px";
+  }
 }
 
 export default App;
