@@ -1,0 +1,24 @@
+.editorContainer {
+  border: solid black;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  top: 200px;
+  left: 100px;
+  float: left;
+}
+
+#sudoCodeOutput {
+  top: 200px;
+  position: relative;
+  border: dotted black;
+  width: 450px;
+  height: 200px;
+  margin-left: 130px;
+  float: left;
+}
+
+#sudoEditor {
+  width: 200px;
+  height: 300px;
+}

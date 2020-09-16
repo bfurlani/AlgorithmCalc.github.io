@@ -46,7 +46,9 @@ function App() {
           </button>
           <br />
         </div>
-        <button class="sudoInt">Sudo Interpretter</button>
+        <button class="sudoInt">
+          <a href="sudoInter">Sudo Interpretter</a>
+        </button>
       </div>
       {routeResult}
     </div>
