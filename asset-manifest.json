@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AlgorithmCalc.github.io/static/css/main.8f20fff3.chunk.css",
+    "main.js": "/AlgorithmCalc.github.io/static/js/main.fad5cece.chunk.js",
+    "main.js.map": "/AlgorithmCalc.github.io/static/js/main.fad5cece.chunk.js.map",
+    "runtime-main.js": "/AlgorithmCalc.github.io/static/js/runtime-main.a3544eb3.js",
+    "runtime-main.js.map": "/AlgorithmCalc.github.io/static/js/runtime-main.a3544eb3.js.map",
+    "static/js/2.0f3131cc.chunk.js": "/AlgorithmCalc.github.io/static/js/2.0f3131cc.chunk.js",
+    "static/js/2.0f3131cc.chunk.js.map": "/AlgorithmCalc.github.io/static/js/2.0f3131cc.chunk.js.map",
+    "index.html": "/AlgorithmCalc.github.io/index.html",
+    "precache-manifest.3ecf65896c01cf4473b4e00a30cc4657.js": "/AlgorithmCalc.github.io/precache-manifest.3ecf65896c01cf4473b4e00a30cc4657.js",
+    "service-worker.js": "/AlgorithmCalc.github.io/service-worker.js",
+    "static/css/main.8f20fff3.chunk.css.map": "/AlgorithmCalc.github.io/static/css/main.8f20fff3.chunk.css.map",
+    "static/js/2.0f3131cc.chunk.js.LICENSE.txt": "/AlgorithmCalc.github.io/static/js/2.0f3131cc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a3544eb3.js",
+    "static/js/2.0f3131cc.chunk.js",
+    "static/css/main.8f20fff3.chunk.css",
+    "static/js/main.fad5cece.chunk.js"
+  ]
+}
