@@ -11,7 +11,16 @@ function SudoInterpretter(props) {
   const [codeMaps, setCodeMaps] = useState(() => {
     return new Map();
   });
-  var sudoInsideFunctionKeywords = ["print", "if", "for", "while", "()"];
+  var sudoInsideFunctionKeywords = [
+    "print",
+    "if",
+    "for",
+    "while",
+    "()",
+    "return",
+    "=",
+    "==",
+  ];
   var lineType;
   var currentFunctionMap = new Map();
   var currentFunctionInsideLines = [];
@@ -37,11 +46,11 @@ function SudoInterpretter(props) {
     if (interpreterRunning) {
       startInterpreter();
       setRunningStatus(false);
+      console.log(codeMaps);
     }
     if (codeMaps.has("")) {
       codeMaps.delete("");
     }
-    console.log(codeMaps);
   }, [interpreterRunning, sudoCode, codeMaps, checkLineType]);
   return (
     <>
@@ -67,7 +76,7 @@ function SudoInterpretter(props) {
         </span>
       </div>
       <div class="editorContainer">
-        <button onClick={() => startInterpreter()}>
+        <button onClick={() => setRunningStatus(true)}>
           <span style={{ fontSize: 25 }}>Run</span>
           <PlayCircleFilledIcon fontSize="40px" />
         </button>
@@ -88,7 +97,7 @@ function SudoInterpretter(props) {
       </div>
       <div id="sudoCodeOutput">
         <span style={{ color: "cornflowerblue" }}>Output</span>
-        {codeMaps.get(codeMaps.keys[0])}
+        {currentFunction}
       </div>
       <div
         style={{
@@ -114,7 +123,6 @@ function SudoInterpretter(props) {
   );
 
   function startInterpreter() {
-    setRunningStatus(true);
     var codeLines = [];
     codeLines = sudoCode.split(`\n`);
     console.log(codeLines);
@@ -135,7 +143,7 @@ function SudoInterpretter(props) {
 
   function checkLineType(line) {
     if (insideFunction === false) {
-      if (line.includes("):")) {
+      if (line.includes("):") && !line.includes(" ")) {
         return "functionHeader";
       }
     }
@@ -149,7 +157,13 @@ function SudoInterpretter(props) {
     } else if (line.includes(sudoInsideFunctionKeywords[3])) {
       return sudoInsideFunctionKeywords[3];
     } else if (line.includes(sudoInsideFunctionKeywords[4])) {
-      return sudoInsideFunctionKeywords[4];
+      return "functionCall";
+    } else if (line.includes(sudoInsideFunctionKeywords[5])) {
+      return sudoInsideFunctionKeywords[5];
+    } else if (line.includes(sudoInsideFunctionKeywords[6])) {
+      return "assignment";
+    } else if (line.includes(sudoInsideFunctionKeywords[7])) {
+      return "equality";
     }
   }
 
